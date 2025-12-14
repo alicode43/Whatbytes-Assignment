@@ -3,11 +3,13 @@
 interface SidebarProps {
   category: string;
   setCategory: (category: string) => void;
+  priceMin: number;
   priceMax: number;
+  setPriceMin: (price: number) => void;
   setPriceMax: (price: number) => void;
 }
 
-function Sidebar({ category, setCategory, priceMax, setPriceMax }: SidebarProps) {
+function Sidebar({ category, setCategory, priceMin, priceMax, setPriceMin, setPriceMax }: SidebarProps) {
   const categories = ['All', 'Electronics', 'Clothing', 'Home'];
 
   return (
@@ -44,13 +46,27 @@ function Sidebar({ category, setCategory, priceMax, setPriceMax }: SidebarProps)
 
         {/* Price Section */}
         <div>
-          <h3 className="text-lg font-bold mb-3">Max Price</h3>
-          <input
-            type="number"
-            value={priceMax}
-            onChange={(e) => setPriceMax(+e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 text-white"
-          />
+          <h3 className="text-lg font-bold mb-3">Price Range</h3>
+          <div className="flex flex-col gap-3">
+            <div>
+              <label className="block text-sm mb-1">Min Price</label>
+              <input
+                type="number"
+                value={priceMin}
+                onChange={(e) => setPriceMin(+e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 text-white"
+              />
+            </div>
+            <div>
+              <label className="block text-sm mb-1">Max Price</label>
+              <input
+                type="number"
+                value={priceMax}
+                onChange={(e) => setPriceMax(+e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 text-white"
+              />
+            </div>
+          </div>
         </div>
       </div>
 

@@ -7,6 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearch } from "@/context/searchContext";
+import { useCart } from "@/context/cartContext";
+import { useSearchParams, useRouter } from "next/navigation";
 
 interface Product {
   id: number;
@@ -21,8 +23,34 @@ interface Product {
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([])
   const { searchQuery } = useSearch();
-  const [category, setCategory] = useState<string>("All");
-  const [priceMax, setPriceMax] = useState<number>(10000);
+  const { addToCart } = useCart();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const updateFilters = (newCategory?: string, newPriceRange?: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (newCategory !== undefined) {
+      params.set('category', newCategory);
+    }
+    if (newPriceRange !== undefined) {
+      params.set('price', newPriceRange);
+    }
+    router.push(`?${params.toString()}`);
+  };
+
+  const setCategory = (cat: string) => updateFilters(cat);
+  const setPriceMin = (min: number) => {
+    const currentMax = priceMax;
+    updateFilters(undefined, `${min}-${currentMax}`);
+  };
+  const setPriceMax = (max: number) => {
+    const currentMin = priceMin;
+    updateFilters(undefined, `${currentMin}-${max}`);
+  };
+
+  const category = searchParams.get('category') || 'All';
+  const priceRange = searchParams.get('price') || '0-10000';
+  const [priceMin, priceMax] = priceRange.split('-').map(Number);
 
   useEffect(() => {
     fetch('/api/getProduct')
@@ -37,7 +65,7 @@ export default function Home() {
                          product.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = category === "All" || product.category === category;
     const price = parseFloat(product.price.replace(/[^0-9.-]+/g, ''));
-    const matchesPrice = price <= priceMax;
+    const matchesPrice = price >= priceMin && price <= priceMax;
     return matchesSearch && matchesCategory && matchesPrice;
   });
 
@@ -47,7 +75,7 @@ export default function Home() {
        
         <div className="flex grow max-w-7xl mx-auto w-full py-8 px-4 gap-8">
           <aside className="w-72 shrink-0 hidden lg:block">
-                <Sidebar category={category} setCategory={setCategory} priceMax={priceMax} setPriceMax={setPriceMax} />
+                <Sidebar category={category} setCategory={setCategory} priceMin={priceMin} priceMax={priceMax} setPriceMin={setPriceMin} setPriceMax={setPriceMax} />
           </aside>
           <main className="grow">
             <h1 className="text-3xl font-bold text-[#002a5c] mb-8">Product Listing</h1>
@@ -68,7 +96,7 @@ export default function Home() {
         
         {/* Sidebar - Hidden on mobile, fixed width on desktop */}
         <aside className="w-72 shrink-0 hidden lg:block">
-          <Sidebar category={category} setCategory={setCategory} priceMax={priceMax} setPriceMax={setPriceMax} />
+          <Sidebar category={category} setCategory={setCategory} priceMin={priceMin} priceMax={priceMax} setPriceMin={setPriceMin} setPriceMax={setPriceMax} />
         </aside>
 
         {/* Product Grid Area */}
@@ -102,7 +130,7 @@ export default function Home() {
                      <Rating initialRating={product.rating} />
                   </div>
 
-                  <button className="mt-auto w-full bg-[#0056b3] text-white py-2.5 rounded-lg font-medium">
+                  <button className="mt-auto w-full bg-[#0056b3] text-white py-2.5 rounded-lg font-medium" onClick={() => addToCart({ id: product.id, name: product.name, price: product.price, image: product.image })}>
                     Add to Cart
                   </button>
                 </div>
@@ -145,7 +173,7 @@ export default function Home() {
                     </div>
                           </Link>
 
-                    <button className="w-full bg-[#0056b3] text-white py-2 rounded-lg text-sm font-medium hover:bg-[#004494] transition-colors shadow-sm">
+                    <button className="w-full bg-[#0056b3] text-white py-2 rounded-lg text-sm font-medium hover:bg-[#004494] transition-colors shadow-sm" onClick={() => addToCart({ id: product.id, name: product.name, price: product.price, image: product.image })}>
                       Add to Cart
                     </button>
                   </div>

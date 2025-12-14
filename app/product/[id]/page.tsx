@@ -2,6 +2,7 @@
 import { use, useState, useEffect } from 'react'
 import Image from 'next/image'
 import Rating from '@/components/Rating'
+import { useCart } from '@/context/cartContext'
 
 interface PageProps {
   params: Promise<{ id: string }>
@@ -20,6 +21,7 @@ function Page({ params }: PageProps) {
   const { id } = use(params);
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     if (id) {
@@ -74,7 +76,7 @@ function Page({ params }: PageProps) {
             <p className="text-sm text-gray-500 mb-6">
               <span className="font-semibold">Category:</span> {product.category}
             </p>
-            <button className="w-full bg-[#0056b3] text-white py-3 rounded-lg font-medium hover:bg-[#004494] transition-colors">
+            <button className="w-full bg-[#0056b3] text-white py-3 rounded-lg font-medium hover:bg-[#004494] transition-colors" onClick={() => product && addToCart({ id: product.id, name: product.name, price: product.price, image: product.image })}>
               Add to Cart
             </button>
           </div>
