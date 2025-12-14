@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 import Rating from "@/components/Rating";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearch } from "@/context/searchContext";
 import { useCart } from "@/context/cartContext";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -21,6 +21,14 @@ interface Product {
 }
 
 export default function Home() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+function HomeContent() {
   const [products, setProducts] = useState<Product[]>([])
   const { searchQuery } = useSearch();
   const { addToCart } = useCart();
@@ -138,7 +146,7 @@ export default function Home() {
               {/* Hover on product */}
  
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                                w-full md:w-[100%] md:h-[100%] bg-white rounded-2xl shadow-2xl p-4 
+                                w-full md:w-full md:h-full bg-white rounded-2xl shadow-2xl p-4 
                                 opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                                 transition-all duration-300 z-50 flex gap-4 ring-1 ring-gray-200">
 {/*                   
