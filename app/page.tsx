@@ -74,10 +74,10 @@ export default function Home() {
       <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
        
         <div className="flex grow max-w-7xl mx-auto w-full py-8 px-4 gap-8">
-          <aside className="w-72 shrink-0 hidden lg:block">
+          <aside className="w-72 shrink-0 hidden lg:block fixed left-0 top-0 h-full z-10">
                 <Sidebar category={category} setCategory={setCategory} priceMin={priceMin} priceMax={priceMax} setPriceMin={setPriceMin} setPriceMax={setPriceMax} />
           </aside>
-          <main className="grow">
+          <main className="grow lg:ml-72">
             <h1 className="text-3xl font-bold text-[#002a5c] mb-8">Product Listing</h1>
             <div>There are no products to display.</div>
           </main>
@@ -88,11 +88,11 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
+    <div className="flex flex-col min-h-screen bg-gray-50 font-sans ove">
    
       
       {/* Main Layout Container */}
-      <div className="flex grow  mx-auto w-full py-8 px-4 gap-8">
+      <div className="flex grow  mx-auto w-full py-8 px-4 gap-16">
         
         {/* Sidebar - Hidden on mobile, fixed width on desktop */}
         <aside className="w-72 shrink-0 hidden lg:block">
@@ -138,7 +138,7 @@ export default function Home() {
               {/* Hover on product */}
  
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                                w-full md:w-[120%] md:h-[80%] bg-white rounded-2xl shadow-2xl p-4 
+                                w-full md:w-[100%] md:h-[100%] bg-white rounded-2xl shadow-2xl p-4 
                                 opacity-0 invisible group-hover:opacity-100 group-hover:visible 
                                 transition-all duration-300 z-50 flex gap-4 ring-1 ring-gray-200">
 {/*                   
@@ -153,7 +153,7 @@ export default function Home() {
                   </div>
                       {/* </Link> */}
 
-                  <div className="w-3/5 flex flex-col text-left">
+                  <div className="w-3/5 flex flex-col text-left gap-">
                            <Link key={product.id} href={`/product/${product.id}`} className="relative group h-95 w-full">
                      
                     <h3 className="text-lg font-bold text-[#002a5c]">{product.name}</h3>

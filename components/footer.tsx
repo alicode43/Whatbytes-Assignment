@@ -32,13 +32,13 @@ function Footer() {
           <h3 className="text-xl font-bold mb-6">Follow Us</h3>
           <div className="flex gap-4">
          
-            <a href="#" className="w-10 h-10 bg-[#0056b3] rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 shadow-sm">
+            <a href="https://www.facebook.com" className="w-10 h-10 bg-[#0056b3] rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 shadow-sm">
               <Facebook size={20} className="fill-current text-white" />
             </a>
-            <a href="#" className="w-10 h-10 bg-[#0056b3] rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 shadow-sm">
+            <a href="https://www.x.com/" className="w-10 h-10 bg-[#0056b3] rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 shadow-sm">
               <Twitter size={20} className="fill-current text-white" />
             </a>
-            <a href="#" className="w-10 h-10 bg-[#0056b3] rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 shadow-sm">
+            <a href="https://www.instagram.com" className="w-10 h-10 bg-[#0056b3] rounded-full flex items-center justify-center hover:bg-blue-500 transition-all duration-300 shadow-sm">
               <Instagram size={20} className="text-white" />
             </a>
           </div>

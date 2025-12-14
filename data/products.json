@@ -4,7 +4,7 @@
     "name": "Running Shoes",
     "price": "$99",
     "category": "Footwear",
-    "description": "Lightweight, durable shoes designed for long-distance running with breathable mesh.",
+    "description": "Experience ultimate comfort and performance with these lightweight, durable running shoes designed specifically for long-distance running. Featuring advanced breathable mesh technology that keeps your feet cool and dry, responsive cushioning for maximum shock absorption, and a flexible sole that adapts to your natural gait. Perfect for marathon training, daily jogs, or casual walks.",
     "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
     "rating": 4
   },
@@ -13,7 +13,7 @@
     "name": "Wireless Headphones",
     "price": "$129",
     "category": "Electronics",
-    "description": "Noise-cancelling over-ear headphones with 20-hour battery life and deep bass.",
+    "description": "Immerse yourself in crystal-clear audio with these premium noise-cancelling over-ear wireless headphones. Featuring industry-leading 20-hour battery life, deep bass response, and advanced active noise cancellation that blocks out ambient sounds. The comfortable padded headband and memory foam ear cushions ensure all-day comfort, while Bluetooth 5.0 connectivity provides stable, lag-free wireless streaming.",
     "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
     "rating": 5
   },
@@ -22,7 +22,7 @@
     "name": "Backpack",
     "price": "$129",
     "category": "Accessories",
-    "description": "Water-resistant travel backpack with a dedicated laptop compartment and ergonomic straps.",
+    "description": "Travel in style and comfort with this premium water-resistant travel backpack. Designed with a dedicated laptop compartment that fits up to 15-inch laptops, ergonomic shoulder straps with padding for long-term comfort, and multiple organizational pockets for cables, documents, and personal items. The durable nylon construction and weather-resistant coating make it perfect for daily commutes, business trips, or outdoor adventures.",
     "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80",
     "rating": 4
   },
@@ -31,7 +31,7 @@
     "name": "Smartwatch",
     "price": "$249",
     "category": "Electronics",
-    "description": "Track your fitness, heart rate, and notifications on the go with this sleek smartwatch.",
+    "description": "Stay connected and track your health with this advanced smartwatch featuring a vibrant AMOLED display, comprehensive fitness tracking capabilities, and seamless smartphone integration. Monitor your heart rate 24/7, track various workouts including running, cycling, and swimming, receive notifications for calls and messages, and enjoy up to 7 days of battery life. The sleek design with customizable watch faces makes it both functional and stylish.",
     "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80",
     "rating": 4
   },
@@ -40,7 +40,7 @@
     "name": "Sunglasses",
     "price": "$149",
     "category": "Accessories",
-    "description": "Polarized lenses offering 100% UV protection in a classic, stylish frame.",
+    "description": "Protect your eyes in style with these premium polarized sunglasses featuring 100% UV protection, scratch-resistant lenses, and a lightweight titanium frame. The advanced polarization technology reduces glare from water, snow, and roads, while the adjustable nose pads and flexible temples ensure a comfortable, secure fit. Available in classic black and stylish colors to complement any outfit.",
     "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80",
     "rating": 3
   },
@@ -49,26 +49,89 @@
     "name": "Digital Camera",
     "price": "$499",
     "category": "Electronics",
-    "description": "Capture stunning 4K video and high-resolution photos with this compact mirrorless camera.",
+    "description": "Capture professional-quality photos and videos with this compact mirrorless digital camera featuring a 24.2MP sensor, 4K video recording capabilities, and advanced autofocus system. The lightweight body with ergonomic grip makes it perfect for travel and street photography, while the interchangeable lens system allows for creative flexibility. Includes image stabilization, manual controls, and Wi-Fi connectivity for instant sharing.",
     "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80",
     "rating": 5
   },
   {
     "id": 7,
-    "name": "T-Shirt",
+    "name": "Cotton T-Shirt",
     "price": "$29",
     "category": "Clothing",
-    "description": "Comfortable cotton t-shirt available in multiple colors.",
+    "description": "Stay comfortable all day with this premium 100% organic cotton t-shirt featuring a relaxed fit, reinforced stitching, and tagless design for maximum comfort. The soft, breathable fabric is perfect for layering or wearing alone, and the classic crew neck design pairs well with any outfit. Available in multiple colors and sizes, machine washable and durable for everyday wear.",
     "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
     "rating": 4
   },
   {
     "id": 8,
-    "name": "Throw Pillow",
+    "name": "Decorative Throw Pillow",
     "price": "$39",
     "category": "Home",
-    "description": "Soft and stylish throw pillow to enhance your living space.",
+    "description": "Add style and comfort to your living space with this luxurious decorative throw pillow featuring premium down filling, soft velvet fabric, and hidden zipper closure. The perfect size for sofas, beds, or accent chairs, this pillow combines elegance with functionality. The removable cover is machine washable, and the neutral color palette makes it easy to coordinate with existing decor.",
     "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80",
     "rating": 4
+  },
+  {
+    "id": 9,
+    "name": "Denim Jeans",
+    "price": "$89",
+    "category": "Clothing",
+    "description": "Experience classic style and comfort with these premium slim-fit denim jeans crafted from high-quality, stretch cotton blend fabric. Featuring a modern 5-pocket design, reinforced stitching, and a comfortable mid-rise waist that sits just right. The dark wash finish maintains its color through multiple washes, and the versatile style works for casual outings, office wear, or weekend adventures.",
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
+  },
+  {
+    "id": 10,
+    "name": "Wool Sweater",
+    "price": "$119",
+    "category": "Clothing",
+    "description": "Stay warm and stylish during cooler months with this luxurious merino wool sweater featuring a classic crew neck design, ribbed cuffs and hem for a perfect fit, and natural temperature regulation properties. The soft, itch-free wool blend provides exceptional comfort while maintaining shape and color after repeated washing. Perfect for layering over shirts or wearing as a standalone piece.",
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=500&q=80",
+    "rating": 5
+  },
+  {
+    "id": 11,
+    "name": "Ceramic Vase",
+    "price": "$65",
+    "category": "Home",
+    "description": "Elevate your home decor with this handcrafted ceramic vase featuring a modern cylindrical design, glossy white glaze finish, and spacious interior perfect for fresh or dried flower arrangements. The sturdy base ensures stability while the elegant silhouette adds a contemporary touch to any room. Each piece is unique with slight variations that highlight the artisanal craftsmanship.",
+    "image": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
+  },
+  {
+    "id": 12,
+    "name": "Table Lamp",
+    "price": "$79",
+    "category": "Home",
+    "description": "Illuminate your space with this modern table lamp featuring a brushed nickel base, adjustable swing arm design, and energy-efficient LED bulb included. The sleek contemporary styling complements any decor while providing focused task lighting for reading, working, or creating ambiance. The weighted base ensures stability, and the easy-to-use touch dimmer allows you to adjust brightness levels effortlessly.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
+  },
+  {
+    "id": 13,
+    "name": "Cotton Hoodie",
+    "price": "$69",
+    "category": "Clothing",
+    "description": "Enjoy ultimate comfort with this premium cotton-blend hoodie featuring a relaxed fit, kangaroo pocket, and adjustable drawstring hood. The soft fleece lining provides warmth without bulk, making it perfect for casual wear, workouts, or lounging. The durable construction and reinforced stitching ensure it maintains its shape and color through regular use and washing.",
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
+  },
+  {
+    "id": 14,
+    "name": "Wall Art Print",
+    "price": "$45",
+    "category": "Home",
+    "description": "Transform your walls with this gallery-quality art print featuring a minimalist abstract design on premium archival paper. The ready-to-frame format with crisp lines and vibrant colors adds instant character to any room. Each print is carefully packaged to prevent damage and arrives with mounting hardware for easy installation. Perfect for living rooms, bedrooms, or office spaces.",
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
+  },
+  {
+    "id": 15,
+    "name": "Leather Boots",
+    "price": "$159",
+    "category": "Clothing",
+    "description": "Step out in confidence with these premium leather ankle boots featuring genuine cowhide construction, Goodyear welted soles for durability, and a comfortable block heel. The classic design with side zipper closure makes them easy to wear while providing all-day comfort. Water-resistant treatment protects against light rain, and the versatile style pairs perfectly with jeans, dresses, or skirts.",
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80",
+    "rating": 5
   }
 ]

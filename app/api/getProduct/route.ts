@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type {  NextApiResponse } from 'next'
 import products from '@/data/products.json'
 export async function GET() {
 
