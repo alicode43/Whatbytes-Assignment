@@ -15,9 +15,10 @@ function Navbar() {
  
     <nav className="flex items-center justify-between bg-blue-600 px-8 py-4 shadow-md">
        
-      <div className="text-white text-3xl font-bold cursor-pointer">
+      <Link href="/" className="text-white text-3xl font-bold cursor-pointer">
+       
         Logo
-      </div>
+      </Link >
 
   
       <div className="flex items-center w-full max-w-xl mx-4 bg-blue-500 border border-[#588bc4] rounded-lg px-4 py-2.5">
