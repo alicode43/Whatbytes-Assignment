@@ -1,65 +1,79 @@
-import Image from "next/image";
+import Navbar from "@/components/navbar";
+import Sidebar from "@/components/sidebar";
+import Footer from "@/components/footer";
 
 export default function Home() {
+ const products = [
+    { 
+      id: 1, 
+      name: 'Running Shoes', 
+      price: '$99', 
+      category: 'Footwear',
+      description: 'Lightweight, durable shoes designed for long-distance running with breathable mesh.',
+      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80' 
+    },
+    { 
+      id: 2, 
+      name: 'Wireless Headphones', 
+      price: '$129', 
+      category: 'Electronics',
+      description: 'Noise-cancelling over-ear headphones with 20-hour battery life and deep bass.', 
+      image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80' 
+    },
+    { 
+      id: 3, 
+      name: 'Backpack', 
+      price: '$129', 
+      category: 'Accessories',
+      description: 'Water-resistant travel backpack with a dedicated laptop compartment and ergonomic straps.',
+      image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80' 
+    },
+    { 
+      id: 4, 
+      name: 'Smartwatch', 
+      price: '$249', 
+      category: 'Electronics',
+      description: 'Track your fitness, heart rate, and notifications on the go with this sleek smartwatch.',
+      image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80' 
+    },
+    { 
+      id: 5, 
+      name: 'Sunglasses', 
+      price: '$149', 
+      category: 'Accessories',
+      description: 'Polarized lenses offering 100% UV protection in a classic, stylish frame.',
+      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80' 
+    },
+    { 
+      id: 6, 
+      name: 'Digital Camera', 
+      price: '$499', 
+      category: 'Electronics',
+      description: 'Capture stunning 4K video and high-resolution photos with this compact mirrorless camera.',
+      image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80' 
+    },
+  ];
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+<>
+<Navbar />
+<div className="flex">
+  <Sidebar />
+  <div>
+    <div className="grid grid-cols-3 gap-6">
+      {products.map((product) => (
+        <div key={product.id} className="bg-white p-4 rounded-2xl shadow-sm flex flex-col">
+          <img src={product.image} alt={product.name} className="w-full h-48 object-contain mb-4 rounded-xl" />
+          <h3 className="text-lg font-semibold mb-1">{product.name}</h3>
+          <p className="text-xl font-bold text-gray-900 mb-4">{product.price}</p>
+          <button className="mt-auto w-full bg-[#0056b3] text-white py-2.5 rounded-lg font-medium hover:bg-[#004494] transition-colors">
+            Add to Cart
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      ))}
     </div>
+  </div>
+  </div>
+  <Footer />
+</>
   );
 }
