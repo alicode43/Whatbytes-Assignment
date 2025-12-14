@@ -6,6 +6,7 @@ import Rating from "@/components/Rating";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useSearch } from "@/context/searchContext";
 
 interface Product {
   id: number;
@@ -19,6 +20,9 @@ interface Product {
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([])
+  const { searchQuery } = useSearch();
+  const [category, setCategory] = useState<string>("All");
+  const [priceMax, setPriceMax] = useState<number>(10000);
 
   useEffect(() => {
     fetch('/api/getProduct')
@@ -27,13 +31,23 @@ export default function Home() {
       .catch(err => console.error('Error fetching products:', err));
   }, []);
 
+  // Filter products based on search query, category, and price
+  const filteredProducts = products.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         product.description.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = category === "All" || product.category === category;
+    const price = parseFloat(product.price.replace(/[^0-9.-]+/g, ''));
+    const matchesPrice = price <= priceMax;
+    return matchesSearch && matchesCategory && matchesPrice;
+  });
+
   if (products.length === 0) {
     return (
       <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
        
         <div className="flex grow max-w-7xl mx-auto w-full py-8 px-4 gap-8">
           <aside className="w-72 shrink-0 hidden lg:block">
-            <Sidebar />
+                <Sidebar category={category} setCategory={setCategory} priceMax={priceMax} setPriceMax={setPriceMax} />
           </aside>
           <main className="grow">
             <h1 className="text-3xl font-bold text-[#002a5c] mb-8">Product Listing</h1>
@@ -47,22 +61,27 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
-      {/* <Navbar /> */}
+   
       
       {/* Main Layout Container */}
-      <div className="flex grow max-w-7xl mx-auto w-full py-8 px-4 gap-8">
+      <div className="flex grow  mx-auto w-full py-8 px-4 gap-8">
         
         {/* Sidebar - Hidden on mobile, fixed width on desktop */}
         <aside className="w-72 shrink-0 hidden lg:block">
-          <Sidebar />
+          <Sidebar category={category} setCategory={setCategory} priceMax={priceMax} setPriceMax={setPriceMax} />
         </aside>
 
         {/* Product Grid Area */}
         <main className="grow">
            <h1 className="text-3xl font-bold text-[#002a5c] mb-8">Product Listing</h1>
            
+           {filteredProducts.length === 0 ? (
+             <div className="text-center py-12">
+               <p className="text-lg text-gray-500">No products match your search or filters. Try adjusting your criteria.</p>
+             </div>
+           ) : (
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               
               <Link key={product.id} href={`/product/${product.id}`} className="relative group h-95 w-full">
                 
@@ -134,7 +153,8 @@ export default function Home() {
 
               </Link>
             ))}
-          </div>
+           </div>
+           )}
         </main>
       </div>
       

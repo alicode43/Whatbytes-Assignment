@@ -52,5 +52,23 @@
     "description": "Capture stunning 4K video and high-resolution photos with this compact mirrorless camera.",
     "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80",
     "rating": 5
+  },
+  {
+    "id": 7,
+    "name": "T-Shirt",
+    "price": "$29",
+    "category": "Clothing",
+    "description": "Comfortable cotton t-shirt available in multiple colors.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
+  },
+  {
+    "id": 8,
+    "name": "Throw Pillow",
+    "price": "$39",
+    "category": "Home",
+    "description": "Soft and stylish throw pillow to enhance your living space.",
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80",
+    "rating": 4
   }
 ]

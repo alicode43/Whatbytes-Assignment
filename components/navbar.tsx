@@ -1,8 +1,13 @@
 
  
+'use client';
+
 import { Search, ShoppingCart } from 'lucide-react'; 
+import { useSearch } from '@/context/searchContext';
 
 function Navbar() {
+  const { searchQuery, setSearchQuery } = useSearch();
+
   return (
  
     <nav className="flex items-center justify-between bg-blue-600 px-8 py-4 shadow-md">
@@ -16,6 +21,8 @@ function Navbar() {
         <Search className="text-white w-5 h-5" />
         <input 
           type="text" 
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full bg-transparent border-none outline-none text-white placeholder-gray-200 ml-3 text-sm" 
           placeholder="Search for products..." 
         />
